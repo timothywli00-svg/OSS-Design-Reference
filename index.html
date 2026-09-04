@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A personal OSS design reference for Whatcom County and Washington State codes, design notes, calculators, forms, fees, and examples."
+    >
+    <title>OSS Design Reference</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Primary">
+        <div class="brand-block">
+          <p class="eyebrow">Personal Knowledge Base</p>
+          <h1>OSS Design Reference</h1>
+          <p>Whatcom and Washington OSS codes, calculations, fees, forms, field notes, and details.</p>
+        </div>
+
+        <nav class="nav-list">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#codes" class="nav-link">Codes &amp; Regulations</a>
+          <a href="#design" class="nav-link">OSS Design</a>
+          <a href="#calculators" class="nav-link">Calculators</a>
+          <a href="#forms" class="nav-link">Forms &amp; Applications</a>
+          <a href="#fees" class="nav-link">Fees</a>
+          <a href="#notes" class="nav-link">My Handy Notes</a>
+          <a href="#details" class="nav-link">Details / Examples</a>
+          <a href="#links" class="nav-link">Useful Links</a>
+        </nav>
+      </aside>
+
+      <main id="main" class="content">
+        <section id="home" class="section intro-section" data-search-root>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Updated <time datetime="2026-09-04">September 4, 2026</time></p>
+              <h2>Fast reference for real OSS design work</h2>
+            </div>
+            <div class="search-wrap">
+              <label for="siteSearch">Search</label>
+              <input id="siteSearch" type="search" placeholder="Search notes, codes, forms, fees">
+            </div>
+          </div>
+
+          <div class="home-grid">
+            <article class="callout-card searchable" data-search="daily workflow whatcom county wac design flow tank sizing drainfield fees">
+              <p class="card-kicker">Daily Workflow</p>
+              <h3>Start with jurisdiction, flow, soil, then reviewers.</h3>
+              <p>
+                Keep official references, your reviewer notes, and quick math in one place so each design starts
+                from the same trusted checklist.
+              </p>
+              <div class="pill-row" aria-label="Primary categories">
+                <span>Whatcom</span>
+                <span>WAC 246-272A</span>
+                <span>DOH RS&amp;G</span>
+                <span>Local notes</span>
+              </div>
+            </article>
+
+            <article class="metric-card searchable" data-search="design flow 120 gpd bedroom minimum 240">
+              <span class="metric">120</span>
+              <p>gpd per bedroom baseline for single-family residential design flow, with a 240 gpd minimum.</p>
+              <a href="https://app.leg.wa.gov/wac/default.aspx?cite=246-272A-0230" target="_blank" rel="noreferrer">WAC 246-272A-0230</a>
+            </article>
+
+            <article class="metric-card searchable" data-search="septic tank sizing 1000 gallons four bedrooms additional 250">
+              <span class="metric">1,000</span>
+              <p>gallon minimum liquid volume for a single-family residence up to four bedrooms.</p>
+              <a href="https://app.leg.wa.gov/wac/default.aspx?cite=246-272A-0232" target="_blank" rel="noreferrer">WAC 246-272A-0232</a>
+            </article>
+          </div>
+
+          <div class="section-header compact">
+            <div>
+              <p class="eyebrow">Pinned</p>
+              <h2>Most Used Sources</h2>
+            </div>
+          </div>
+          <div id="pinnedSources" class="card-grid"></div>
+        </section>
+
+        <section id="codes" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Official References</p>
+              <h2>Codes &amp; Regulations</h2>
+            </div>
+            <p>Whatcom County, Washington State, Ecology, and local-jurisdiction checkpoints.</p>
+          </div>
+          <div id="codeSources" class="stacked-groups"></div>
+        </section>
+
+        <section id="design" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Design Topics</p>
+              <h2>OSS Design</h2>
+            </div>
+            <p>Topic cards for the work you repeat: flow, tanks, dispersal, soils, dosing, gravity, sand filters, and reserve areas.</p>
+          </div>
+          <div id="designTopics" class="topic-grid"></div>
+        </section>
+
+        <section id="calculators" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Scratchpads</p>
+              <h2>Calculators</h2>
+            </div>
+            <p>Quick checks for common OSS math. Verify final submittals against the current code and local review comments.</p>
+          </div>
+
+          <div class="calculator-grid">
+            <article class="tool-card searchable" data-search="calculator design flow bedrooms additional dwelling gpd">
+              <div class="tool-heading">
+                <p class="card-kicker">Design Flow</p>
+                <h3>Residential design flow</h3>
+              </div>
+              <form class="calc-form" id="flowCalc">
+                <label>
+                  Bedrooms in first dwelling
+                  <input type="number" min="1" step="1" value="3" id="flowBedrooms">
+                </label>
+                <label>
+                  Additional dwelling bedrooms
+                  <input type="number" min="0" step="1" value="0" id="flowAdditionalBedrooms">
+                </label>
+                <label>
+                  Local adjustment, gpd
+                  <input type="number" min="0" step="10" value="0" id="flowAdjustment">
+                </label>
+              </form>
+              <output class="result-box" id="flowResult"></output>
+            </article>
+
+            <article class="tool-card searchable" data-search="calculator loading rates soil type hydraulic loading table viii">
+              <div class="tool-heading">
+                <p class="card-kicker">Loading Rates</p>
+                <h3>Hydraulic loading lookup</h3>
+              </div>
+              <form class="calc-form" id="loadingCalc">
+                <label>
+                  Soil type
+                  <select id="soilType"></select>
+                </label>
+                <label>
+                  Effluent basis
+                  <select id="effluentBasis">
+                    <option value="a">Septic tank effluent, gravity or pressure</option>
+                    <option value="b">Treatment Level C / BL3 or higher, pressure</option>
+                  </select>
+                </label>
+              </form>
+              <output class="result-box" id="loadingResult"></output>
+            </article>
+
+            <article class="tool-card searchable" data-search="calculator trench length drainfield sizing infiltrative area absorption area">
+              <div class="tool-heading">
+                <p class="card-kicker">Trench Length</p>
+                <h3>Absorption area to length</h3>
+              </div>
+              <form class="calc-form" id="trenchCalc">
+                <label>
+                  Design flow, gpd
+                  <input type="number" min="0" step="10" value="360" id="trenchFlow">
+                </label>
+                <label>
+                  Loading rate, gpd/sf
+                  <input type="number" min="0.01" step="0.01" value="0.60" id="trenchRate">
+                </label>
+                <label>
+                  Trench width, ft
+                  <input type="number" min="0.5" step="0.25" value="3" id="trenchWidth">
+                </label>
+                <label>
+                  Sidewall credit, sf/lf
+                  <input type="number" min="0" step="0.1" value="0" id="sidewallCredit">
+                </label>
+              </form>
+              <output class="result-box" id="trenchResult"></output>
+            </article>
+
+            <article class="tool-card searchable" data-search="calculator tank volume septic tank bedrooms nonresidential flow">
+              <div class="tool-heading">
+                <p class="card-kicker">Tank Volume</p>
+                <h3>Minimum septic tank volume</h3>
+              </div>
+              <form class="calc-form" id="tankCalc">
+                <label>
+                  Source type
+                  <select id="tankSource">
+                    <option value="single">Single-family residence</option>
+                    <option value="residential">Residential source, not one SFR</option>
+                    <option value="nonresidential">Nonresidential source</option>
+                  </select>
+                </label>
+                <label>
+                  Bedrooms
+                  <input type="number" min="1" step="1" value="3" id="tankBedrooms">
+                </label>
+                <label>
+                  Design flow, gpd
+                  <input type="number" min="0" step="10" value="360" id="tankFlow">
+                </label>
+              </form>
+              <output class="result-box" id="tankResult"></output>
+            </article>
+
+            <article class="tool-card searchable wide-tool" data-search="calculator pump calculations dose volume runtime total dynamic head">
+              <div class="tool-heading">
+                <p class="card-kicker">Pump Calculations</p>
+                <h3>Dose runtime and rough TDH</h3>
+              </div>
+              <form class="calc-form split" id="pumpCalc">
+                <label>
+                  Dose volume, gallons
+                  <input type="number" min="0" step="1" value="60" id="pumpDose">
+                </label>
+                <label>
+                  Pump output, gpm
+                  <input type="number" min="0.1" step="0.5" value="25" id="pumpGpm">
+                </label>
+                <label>
+                  Static lift, ft
+                  <input type="number" min="0" step="0.5" value="12" id="staticLift">
+                </label>
+                <label>
+                  Friction loss, ft
+                  <input type="number" min="0" step="0.5" value="4" id="frictionLoss">
+                </label>
+                <label>
+                  Misc. head, ft
+                  <input type="number" min="0" step="0.5" value="2" id="miscHead">
+                </label>
+              </form>
+              <output class="result-box" id="pumpResult"></output>
+            </article>
+          </div>
+        </section>
+
+        <section id="forms" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Submittals</p>
+              <h2>Forms &amp; Applications</h2>
+            </div>
+            <p>County forms and application portals that tend to come up during design, permit, inspection, and record-drawing work.</p>
+          </div>
+          <div id="formLinks" class="card-grid"></div>
+        </section>
+
+        <section id="fees" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Local Copies</p>
+              <h2>Fees</h2>
+            </div>
+            <p>Fee references you want handy, including documents that are not easy to find online.</p>
+          </div>
+          <div id="feeDocuments" class="document-grid"></div>
+        </section>
+
+        <section id="notes" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Reviewer Memory</p>
+              <h2>My Handy Notes</h2>
+            </div>
+            <p>Things learned from reviewers, common plan-check comments, design details, and standard notes.</p>
+          </div>
+          <div class="notes-layout">
+            <div id="notesList" class="notes-list"></div>
+            <aside class="note-composer searchable" data-search="add note reviewer common comments standard details">
+              <h3>Add Local Note</h3>
+              <form id="noteForm" class="calc-form">
+                <label>
+                  Title
+                  <input id="noteTitle" type="text" maxlength="90" placeholder="Reviewer note or design detail">
+                </label>
+                <label>
+                  Type
+                  <select id="noteType">
+                    <option>Reviewer note</option>
+                    <option>Plan-check comment</option>
+                    <option>Design detail</option>
+                    <option>Standard note</option>
+                  </select>
+                </label>
+                <label>
+                  Note
+                  <textarea id="noteBody" rows="5" placeholder="Capture the useful thing while it is fresh."></textarea>
+                </label>
+                <button type="submit" class="primary-button">Save Local Note</button>
+              </form>
+              <p class="fine-print">Local notes save in this browser. Publish permanent notes by adding them to <code>app.js</code>.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section id="details" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Details</p>
+              <h2>Details / Examples</h2>
+            </div>
+            <p>Reusable prompts for typical details and standard plan notes.</p>
+          </div>
+          <div id="detailExamples" class="topic-grid"></div>
+        </section>
+
+        <section id="links" class="section" data-search-root>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Bookmarks</p>
+              <h2>Useful Links</h2>
+            </div>
+            <p>Records, professional lists, funding, product lists, and background references.</p>
+          </div>
+          <div id="usefulLinks" class="card-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
