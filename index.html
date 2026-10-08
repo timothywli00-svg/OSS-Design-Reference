@@ -9,8 +9,25 @@
     >
     <title>OSS Design Reference</title>
     <link rel="stylesheet" href="styles.css">
+      <script>
+      try {
+        if (sessionStorage.getItem("7cloud-oss-gate") !== "1") document.documentElement.setAttribute("data-locked", "");
+      } catch (e) {}
+    </script>
   </head>
   <body>
+    <div class="gate">
+      <form id="gate-form">
+        <p class="eyebrow">7 Cloud Engineering</p>
+        <h1>OSS design</h1>
+        <p>Sign in to open this reference.</p>
+        <label>Username <input name="user" autocomplete="username" required></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+        <p id="gate-error" class="gate-error" hidden>That username or password is not right.</p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </div>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <div class="shell">
@@ -327,6 +344,7 @@
       </main>
     </div>
 
+    <script src="auth.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
